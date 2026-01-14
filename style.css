@@ -1,4 +1,4 @@
-/* ---------- Reset & Base ---------- */
+/* ---------- Reset ---------- */
 * {
   box-sizing: border-box;
 }
@@ -11,83 +11,84 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color: #e5e7eb;
-  line-height: 1.6;
+  background: #f1f5f9;
+  color: #1f2937;
 }
 
 /* ---------- Layout ---------- */
 #wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 20px;
+  display: flex;
+  min-height: 100vh;
 }
 
-/* ---------- Header ---------- */
+/* ---------- Sidebar ---------- */
 #header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: #111827;
+  padding: 32px 20px;
   display: flex;
+  flex-direction: column;
   gap: 16px;
-  padding: 16px 24px;
-  margin-bottom: 32px;
-  border-radius: 14px;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(148, 163, 184, 0.15);
 }
 
 #header .button {
   text-decoration: none;
-  color: #e5e7eb;
-  font-weight: 500;
-  padding: 10px 16px;
-  border-radius: 10px;
-  transition: all 0.25s ease;
+  color: #d1d5db;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border-radius: 8px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 #header .button:hover {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
+  background: #1f2937;
+  color: #ffffff;
 }
 
-/* ---------- Content Card ---------- */
+/* ---------- Main Content ---------- */
 #content {
-  position: relative;
+  margin-left: 240px;
+  padding: 40px;
+  width: calc(100% - 240px);
 }
 
 #pageContent {
-  background: rgba(2, 6, 23, 0.85);
-  border-radius: 18px;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 12px;
   padding: 40px;
-  border: 1px solid rgba(148, 163, 184, 0.15);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* ---------- Headings ---------- */
 h2 {
   margin-top: 36px;
-  margin-bottom: 12px;
   font-size: 1.4rem;
-  letter-spacing: 0.04em;
-  color: #38bdf8;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  color: #111827;
+  border-bottom: 2px solid #e5e7eb;
   padding-bottom: 6px;
 }
 
 h3 {
-  margin: 18px 0 6px;
+  margin-top: 20px;
   font-size: 1.05rem;
-  color: #e5e7eb;
+  color: #374151;
 }
 
 /* ---------- Text ---------- */
 p {
-  margin-top: 8px;
-  margin-bottom: 12px;
-  color: #cbd5f5;
+  margin-top: 10px;
+  color: #374151;
 }
 
 a {
-  color: #7dd3fc;
+  color: #2563eb;
   text-decoration: none;
 }
 
@@ -98,25 +99,43 @@ a:hover {
 /* ---------- Lists ---------- */
 ul {
   margin: 10px 0 20px 20px;
-  padding: 0;
 }
 
 li {
   margin-bottom: 6px;
-  color: #cbd5f5;
 }
 
-/* ---------- Profile Image ---------- */
+/* ---------- Image ---------- */
 img {
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 /* ---------- Footer ---------- */
 #footer {
-  margin-top: 24px;
+  margin-left: 240px;
   text-align: center;
   font-size: 0.85rem;
-  color: #94a3b8;
-  opacity: 0.8;
+  color: #6b7280;
+  padding: 20px 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  #header {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  #footer {
+    margin-left: 0;
+  }
 }
